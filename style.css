@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 2480px;
+    height: 3508px;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#photo img{
+    width: 200px;
+}
+
+#left-info-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+
+    justify-content: flex-start;
+
+    padding-top: 20px;
+
+    background-color: rgb(255, 194, 113);
+}
+
+#content-container h1{
+    margin-top: 10px;
+}
+
+.content{
+    margin: 5px 0px;
+}
