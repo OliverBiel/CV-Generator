@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <script src="https://kit.fontawesome.com/6e3c48c7e9.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&display=swap" rel="stylesheet">
+        <title>Currículo</title>
+    </head>
+    <body>
+        <section id="left-info-container" class="flex">
+            <div id="photo">
+                <img src="{% static 'assets/photo.jpeg' %}" alt="">
+            </div>
+
+            <div id="content-container" class="flex">
+                <h1>Formação</h1>
+                {% for academic in academics %}
+                <div class="content flex">
+                    <h3 class="title">{{academic.name}}</h3>
+                    <p class="institution">{{academic.institution}}</p>
+                    <p>{{academic.start_date}} || {{academic.end_date}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="right-info-container" class="flex">
+            <div class="content flex" id="top-content">
+                <h1>Gabriel de Oliveira Martins</h1>
+            </div>
+
+            <div class="content flex" id="contact-info-content">
+                {% for contact in contacts %}
+                <span class="item flex">
+                    <i class="{{contact.logo}}"></i>
+                    <p>{{contact.info}}</p>
+                </span>
+                {% endfor %}
+            </div>
+
+            <div class="content container" id="profile-info">
+                <h3 class="title">Perfil</h3>
+                {% for profile in myprofile %}
+                <p>{{profile.description}}</p>
+                {% endfor %}
+            </div>
+
+            <div class="content container" id="experience-content-container">
+                <h3 class="title">Experiência Profissional</h3>
+                {% for experience in experiences %}
+                <div class="content experience-content">
+                    <p class="position">{{experience.position}}</p>
+                    <p class="company">{{experience.company}}</p>
+                    
+                    {% if experience.end_date == Null or experience.end_date == '' %}
+                    <p class="date">{{experience.start_date}} - Atualmente</p>
+                    {% else %}
+                    <p class="date">{{experience.start_date}} || {{experience.end_date}}</p>
+                    {% endif %}
+                    <ul>
+                        {% for func in experience.job_func.all %}
+                        <li>{{func}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+       </section>
+    </body>
+</html>
