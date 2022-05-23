@@ -7,7 +7,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'style.css' %}">
-        <script src="https://kit.fontawesome.com/6e3c48c7e9.js" crossorigin="anonymous"></script>
+        
+        <!-- COLOQUE AQUI O LINK DO FONT AWESOME -->
+
+        <!-- ----------------------------------------- -->
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700;900&display=swap" rel="stylesheet">
@@ -19,9 +23,11 @@
     </head>
     <body>
         <section id="left-info-container" class="flex">
+            {% for myprofile in myprofile %}
             <div id="photo">
-                <img src="{% static 'assets/photo.jpeg' %}" alt="">
+                <img src="/media/{{myprofile.photo}}" alt="">
             </div>
+            {% endfor %}
 
             <div id="content-container" class="flex">
                 <h1>Formação</h1>
@@ -36,9 +42,11 @@
         </section>
 
         <section id="right-info-container" class="flex">
+            {% for myprofile in myprofile %}
             <div class="content flex" id="top-content">
-                <h1>Gabriel de Oliveira Martins</h1>
+                <h1>{{myprofile.name}}</h1>
             </div>
+            {% endfor %}
 
             <div class="content flex" id="contact-info-content">
                 {% for contact in contacts %}
