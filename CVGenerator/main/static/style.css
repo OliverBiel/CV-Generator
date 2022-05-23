@@ -93,6 +93,10 @@ body{
     margin-right: 15px;
 }
 
+#profile-info p{
+    width: 95%;
+}
+
 .experience-content{
     margin-top: 20px;
 }

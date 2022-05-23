@@ -52,7 +52,7 @@
             <div class="content container" id="profile-info">
                 <h3 class="title">Perfil</h3>
                 {% for profile in myprofile %}
-                <p>{{profile.description}}</p>
+                <p>{{profile.description|linebreaks}}</p>
                 {% endfor %}
             </div>
 
